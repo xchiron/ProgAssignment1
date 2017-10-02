@@ -84,12 +84,12 @@ public class EmployeeDatabase {
 	 */
 	boolean containsEmployee(String e) {
 		if (e==null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("cannot pass null value into containsEmployee");
 		}
 		Iterator<Employee> it = EmployeeList.iterator();
 		while(it.hasNext()) {
 			Employee curEmp = it.next();
-			if (curEmp.getUsername().equals(e)) {
+			if (curEmp.getUsername().equalsIgnoreCase(e)) {
 				return true;
 			}
 		}
@@ -104,7 +104,7 @@ public class EmployeeDatabase {
 	 */
 	boolean containsDestination(String d) {
 		if (d==null) {
-			throw new IllegalArgumentException("cannot pass in null value");
+			throw new IllegalArgumentException("cannot pass in null value into containsDestination");
 		}
 		Iterator<Employee> it = iterator();
 		while(it.hasNext()) {
@@ -125,7 +125,7 @@ public class EmployeeDatabase {
 	 */
 	boolean hasDestination(String e, String d) {
 		if (d==null || e==null) {
-			throw new IllegalArgumentException("cannot pass in null value");
+			throw new IllegalArgumentException("cannot pass in null value into hasDestination");
 		}
 		if (containsEmployee(e)) {
 			if(getDestinations(e).contains(d)) {
@@ -143,7 +143,7 @@ public class EmployeeDatabase {
 	 */
 	List<String> getEmployees(String d){
 		if (d==null) {
-			throw new IllegalArgumentException("cannot pass in null value");
+			throw new IllegalArgumentException("cannot pass in null value into getEmployees");
 		}
 		List<String> empList = new ArrayList<String>();
 		Iterator<Employee> it = iterator();
@@ -169,7 +169,7 @@ public class EmployeeDatabase {
 		Iterator<Employee> it = iterator();
 		while(it.hasNext()) {
 			Employee curEmp = it.next();
-			if (curEmp.getUsername().equals(e)) {
+			if (curEmp.getUsername().equalsIgnoreCase(e)) {
 				return curEmp.getWishlist();
 			}
 		}
@@ -193,11 +193,13 @@ public class EmployeeDatabase {
 	 * @return Returns true if the employee is removed. Otherwise returns false.
 	 */
 	boolean removeEmployee(String e) {
-		
+		if (e==null) {
+			throw new IllegalArgumentException("cannot pass null value into removeEmployee");
+		}
 		Iterator<Employee> it=iterator();
 		while(it.hasNext()) {
 			Employee curEmp = it.next();
-			if (curEmp.getUsername().equals(e)) {
+			if (curEmp.getUsername().equalsIgnoreCase(e)) {
 				it.remove();
 				return true;
 			}
@@ -213,7 +215,7 @@ public class EmployeeDatabase {
 	 */
 	boolean removeDestination(String d) {
 		if (d==null) {
-			throw new IllegalArgumentException("cannot pass null value");
+			throw new IllegalArgumentException("cannot pass null value into removeDestination");
 		}
 		boolean exitVal = false;
 		Iterator<Employee> it=iterator();
