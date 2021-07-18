@@ -22,13 +22,13 @@ positive or negative.
 # Reflection
 This project was a challenge for me to learn to build a web application completely new from the ground up within 4 days.  During the initial design and research portion, I looked up what are the best tech stacks to use to create a web application and saw that the MERN and Heroku were among the top and decided to proceed with this process.  Learning both of these technologies completely new from the ground up, I was able to grasp the basics of how everything connected together.  However, I did run into a large number of difficulties and would need to learn best practices in how to handle these situations:
 
-## Backend
+### Backend
 * File structure seems messy, I've seen examples of people putting the server.js fil in the backend folder and other who put it at the top level.  What would be the best strategy in this file placement especially for easy deployment?
 
-## Frontend
+### Frontend
 * Async programming feels very messy, especially if you need to do a large number of nested call backs.  Are there better ways to implement this inline rather than nested in each other's functions?
 
-## Deployment
+### Deployment
 * package.json management feels messy especially when deploying, is there a good way to structure the file structure for frontend and backend code to make package deployment clean.  Right now, my workaround is to point the main package to a package in the backend folder to run the commands to run server.js.  This feels to unstructured
 
 # Enhancements
